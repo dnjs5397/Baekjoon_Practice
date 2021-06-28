@@ -1,4 +1,4 @@
-# 정렬 팁
+# 정렬 문제
 # sort 함수는 원본을 변경 / sorted 함수는 사본을 변경해 반환
 
 arr = list(map(int, input().split(' '))) # 공백을 기준으로 int형의 변수를 입력받아 배열로 저장
