@@ -1,20 +1,18 @@
 N = int(input())
 arr = list(map(int, input().split(' ')))
-result = 1
-for i in range(N-1):
-    num = arr[i]
-    tmp_result = 1
-    for j in range(i+1, N):
-        if i == N-2:
-            if arr[i] < arr[-1]:
-                tmp_result = 2
-                break
-            else:
-                tmp_result = 1
-                break
-        if arr[j] > num:
-            num = arr[j]
-            tmp_result += 1
-    result = max(result, tmp_result)
+if N == 1:
+    print(1)
+    exit(0)
+value = [1] * N
+for i in range(1, N):
+    max_val = 0
+    max_index = 0
+    for j in range(0, i):
+        if arr[j] < arr[i]:
+            if value[j] > max_val:
+                max_val = value[j]
+                max_index = j
+    if max_val != 0:
+        value[i] += value[max_index]
 
-print(result)
+print(max(value))

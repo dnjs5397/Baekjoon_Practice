@@ -1,2 +1,2 @@
-a = '000610'
-print(int(a))
+for i in range(0,1):
+    print(i)
