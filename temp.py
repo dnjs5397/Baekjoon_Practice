@@ -1,2 +1,6 @@
-for i in range(0,1):
-    print(i)
+n = 10
+a = ['1', '2', '3']
+n -= 3
+while (n>0):
+    print(n)
+    n -= 1
