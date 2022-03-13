@@ -1,4 +1,4 @@
-s = 'aabbaabbaa'
+a = '- and backend and senior and - 150'
 
-s = s.replace('aa', '')
-print(s)
+a = a.replace('and ', '')
+print(a)

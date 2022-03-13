@@ -1,3 +1,1 @@
-A= 'AJFIDJSKLFJ'
-
-print(A.count('D'))
+print(81//2)

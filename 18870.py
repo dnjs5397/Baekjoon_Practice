@@ -1,23 +1,9 @@
 N = int(input())
-tmp = list(map(int, input().split(' ')))
-arr = []
-result = [0] * N
-for i in range(N):
-    arr.append((i, tmp[i]))
-arr.sort(key = lambda x : x[1])
+arr = list(map(int, input().split(' ')))
+result = []
+arr2 = list(set(arr))
+for i in range(len(arr2)):
+    result.append((i, arr2[i]))
 
-for i in range(1, N):
-    small = []
-    value = arr[i][1]
-    index = i
-    while(index >= 1):
-        index -= 1
-        if arr[index][1] == value:
-            pass
-        else:
-            small.append(arr[index][1])
-    small = list(set(small))
-    result[arr[i][0]] = len(small)
-
-print(result)
-        
+for i in arr:
+    a = 1
