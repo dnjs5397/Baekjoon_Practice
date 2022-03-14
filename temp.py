@@ -1,19 +1,15 @@
-info = ["java backend junior pizza 150",
-        "python frontend senior chicken 210",
-        "python frontend senior chicken 150",
-        "cpp backend senior pizza 260",
-        "java backend junior chicken 80",
-        "python backend senior chicken 50"]
+graph = [[0,1,1,1],
+         [1,1,1,1],
+         [1,1,1,1],
+         [0,0,1,0]]
+for i in range(1, len(graph)):
+    for j in range(1, len(graph[0])):
+        if graph[i][j] != 0:
+            graph[i][j] = min(graph[i-1][j], graph[i][j-1], graph[i-1][j-1]) + 1
+max = 0
+for i in range(len(graph)):
+    for j in range(len(graph[0])):
+        if max < graph[i][j]:
+            max = graph[i][j]
 
-query = ["java and backend and junior and pizza 100",
-         "python and frontend and senior and chicken 200",
-         "cpp and - and senior and pizza 250",
-         "- and backend and senior and - 150",
-         "- and - and - and chicken 100",
-         "- and - and - and - 150"]
-
-for i in query:
-    count = 0
-    tmp = i.replace('and ', '')
-    tmp = tmp.split()
-    print(tmp)
+print(max*max)

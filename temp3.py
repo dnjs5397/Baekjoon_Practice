@@ -1,1 +1,2 @@
-print(81//2)
+import math
+print(math.sqrt(9))
