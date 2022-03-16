@@ -1,30 +1,12 @@
-graph = [[0,0,0],
-         [0,1,0],
-         [1,0,1]]
-
-val = 0
-
-def dfs(x,y):
-    global val
-    if x <= -1 or x >= len(graph) or y <= -1 or y >= len(graph):
-        return False
-    
-    if graph[x][y] == 0:
-        val += 1
-        graph[x][y] = 1
-        
-        dfs(x-1,y)
-        dfs(x,y-1)
-        dfs(x+1,y)
-        dfs(x,y+1)
-        return True
-    return False
-result = 0
-for i in range(3):
-    for j in range(3):
-        if dfs(i,j) == True:
-            if val > result:
-                result = val
-        val = 0
-        
-print(result)
+brown = 18
+yellow = 6
+num = brown+yellow
+answer = []
+for i in range(1, num+1):
+    if num % i == 0:
+        if i >= num//i and (i-2)*(num//i-2) == yellow:
+            answer.append(i)
+            answer.append(num//i)
+            break
+            
+print(answer)

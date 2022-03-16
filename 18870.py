@@ -1,6 +1,3 @@
-from os import sep
-
-
 N = int(input())
 arr = list(map(int, input().split(' ')))
 result = [0] * N

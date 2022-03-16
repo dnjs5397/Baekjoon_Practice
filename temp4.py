@@ -1,16 +1,5 @@
-N = int(input())
-count = 0
+phone_book = ["1", "110", "111", "11",'01']
 
-S = input()
-cnt = 1
-for i in range(N-1):
-    if S[i] == S[i+1]:
-        cnt += 1
-    else:
-        if cnt % 3 == 0:
-            count += 1
-        cnt = 1
-    if i == N-2:
-        if cnt % 3 == 0:
-            count += 1
-print(count)
+print(sorted(phone_book))
+
+
