@@ -12,4 +12,5 @@ for i in range(len(graph)):
         if max < graph[i][j]:
             max = graph[i][j]
 
+
 print(max*max)
