@@ -1,11 +1,14 @@
+import sys
+sys.setrecursionlimit(1000000) # 재귀 깊이 정해주기 백만까지 가능 / 설정 안하면 998까지
+
 def DFS(x,y):
-    if x <= -1 or x >= N or y <= -1 or y >= M:
+    if x <= -1 or x >= M or y <= -1 or y >= N:
         return False
     if maplist[x][y] == 1:
         maplist[x][y] = 0
         DFS(x-1, y)
-        DFS(x,y-1)
         DFS(x+1,y)
+        DFS(x,y-1)
         DFS(x,y+1)
         return True
     return False

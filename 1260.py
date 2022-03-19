@@ -1,11 +1,11 @@
-def dfs(graph, v, visited):
+def dfs(v):
     visited[v] = True
     print(v, end=' ')
     for i in graph[v]:
         if not visited[i]:
-            dfs(graph, i, visited)
+            dfs(i)
 
-def bfs(graph, v, visited):
+def bfs(v):
     visited[v] = True
     queue = [v]
     while queue:
@@ -17,19 +17,18 @@ def bfs(graph, v, visited):
                 visited[i] = True
                 
 N, M, V = map(int, input().split(' '))
-graph = [[0] for i in range(N+1)] 
+graph = [[] for _ in range(N+1)] 
 visited = [False] * (N+1)
-visited2 = [False] * (N+1)
-for i in range(M):
+for _ in range(M):
     a, b = map(int, input().split(' '))
-    if graph[a][0] == 0:
-        graph[a][0] = b
-    else:
-        graph[a].append(b)
-for i in graph:
-    if len(i) == 1 and i[0] == 0:
-        del i[0]
-graph2 = graph
-dfs(graph, V, visited)
-print()
-dfs(graph2, V, visited2)
+    graph[a].append(b)
+    graph[b].append(a)
+print(graph)
+for i in range(1, N+1):
+    graph[i].sort()
+
+print(graph)
+# dfs(V)
+# visited = [False] * (N+1)
+# print()
+# bfs(V)

@@ -1,16 +1,33 @@
-graph = [[0,1,1,1],
-         [1,1,1,1],
-         [1,1,1,1],
-         [0,0,1,0]]
-for i in range(1, len(graph)):
-    for j in range(1, len(graph[0])):
-        if graph[i][j] != 0:
-            graph[i][j] = min(graph[i-1][j], graph[i][j-1], graph[i-1][j-1]) + 1
-max = 0
-for i in range(len(graph)):
-    for j in range(len(graph[0])):
-        if max < graph[i][j]:
-            max = graph[i][j]
-
-
-print(max*max)
+goods = ["abcdeabcd","cdabe","abce","bcdeab"]
+answer = []
+for i in goods:
+    isdone = False
+    for j in range(len(i)): # 문자열 길이만큼 반복
+        tmp = []
+        for k in range(len(i)-j): # 문자열 자르는 개수
+            cnt = 0
+            left = k
+            right = left+j+1
+            s = i[left:right]
+            for q in goods:
+                if s in q:
+                    cnt += 1
+                if cnt >= 2:
+                    break
+            if cnt == 1:
+                tmp.append(s)
+                isdone = True
+        if isdone == True:
+            answer.append(tmp)
+            break
+    if isdone == False:
+        answer.append("None")   
+core = []
+for i in answer:
+    if i != "None":
+        tmp = sorted(list(set(i)))
+        core.append(' '.join(tmp))
+    else:
+        core.append('None')
+        
+print(core)
