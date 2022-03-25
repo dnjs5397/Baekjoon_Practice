@@ -1,20 +1,17 @@
 N = int(input())
-max = 0
-book = []
-answer = []
+word = []
+book = {}
 for i in range(N):
-    book.append(input())
+    name = input()
+    if name not in book:
+        book[name] = 1
+    else:
+        book[name] += 1
 
-for i in book:
-    if book.count(i) > max:
-        max = book.count(i)
-        
-for i in book:
-    if book.count(i) == max:
-        if i not in answer:
-            answer.append(i)
-        else:
-            pass
+maxval = max(book.values())
+for i in book.items():
+    if i[1] == maxval:
+        word.append(i[0])
 
-answer.sort()
-print(answer[0])
+word.sort()
+print(word[0])
