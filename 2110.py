@@ -3,7 +3,7 @@ house = []
 answer = 0
 for i in range(N):
     house.append(int(input()))
-house.sort()
+houses = sorted(house)
 
 left = house[1] - house[0]
 right = house[-1] - house[0]
@@ -12,12 +12,12 @@ while left <= right:
     count = 1
     value = house[0]
     for i in range(1, len(house)):
-        if house[i]-value >= mid:
+        if house[i] >= value+mid:
             count += 1
             value = house[i]
     if count >= C:
-        answer = count
         left = mid + 1
+        answer = mid
     else:
         right = mid - 1
 
