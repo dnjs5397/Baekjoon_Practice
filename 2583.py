@@ -1,3 +1,6 @@
+import sys
+sys.setrecursionlimit(100000)
+
 M, N, K = map(int, input().split())
 
 graph = [list([0] * N) for _ in range(M)]
@@ -9,5 +12,20 @@ for _ in range(K):
             graph[i][j] = -1
 
 
-for i in graph:
-    print(i)
+def dfs(x,y):
+    if x <= -1 or x >= N or y <= -1 or y >= M:
+        return
+    graph[x][y] = -1
+    dfs(x-1,y)
+    dfs(x+1,y)
+    dfs(x,y-1)
+    dfs(x,y+1)
+    return
+cnt = 0
+for i in range(M):
+    for j in range(N):
+        if graph[i][j] == 0:
+            cnt += 1
+            dfs(i,j)
+            
+print(cnt)
