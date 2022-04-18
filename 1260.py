@@ -1,3 +1,6 @@
+import sys
+sys.setrecursionlimit(100000)
+
 def dfs(v):
     visited[v] = True
     print(v, end=' ')
@@ -28,7 +31,3 @@ for i in range(1, N+1):
     graph[i].sort()
 
 print(graph)
-# dfs(V)
-# visited = [False] * (N+1)
-# print()
-# bfs(V)
