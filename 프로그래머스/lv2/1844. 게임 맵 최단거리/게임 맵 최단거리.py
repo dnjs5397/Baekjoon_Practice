@@ -3,7 +3,7 @@ def solution(maps):
     dxdy = [(0,-1), (0, 1), (1, 0), (-1, 0)]
     answer = 0
     while queue:
-        x,y = queue.pop(0)
+        x,y = queue.pop(0) # 그냥 배열을 사용해도 괜찮으나 시간복잡도를 줄이기 위해서는 deque를 사용할 것 (import collections)
         for i in dxdy:
             tx, ty = x + i[0], y + i[1]
             if tx < 0 or ty < 0 or tx >= len(maps) or ty >= len(maps[0]):
