@@ -5,10 +5,16 @@ distance.insert(0, 0)
 
 answer = [0] * N
 
-answer[1] = arr[0] * distance[1]
+for i in range(1, N):
+    answer[i] = arr[0] * distance[i] + answer[i-1]
 
 for i in range(2, N):
-    answer[i] = min(answer[i-1]+arr[i-1]*distance[i],
-                    answer[i-1]+arr[i-2]*distance[i])
+    val = answer[i-1]
+    for j in range(i, N):
+        val += arr[i-1]*distance[j]
+        if val <= answer[j]:
+            answer[j] = val
+        else:
+            break
 
-print(answer[N-1])
+print(answer[-1])
