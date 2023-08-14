@@ -1,20 +1,14 @@
 N = int(input())
 distance = list(map(int, input().split()))
 arr = list(map(int, input().split()))
-distance.insert(0, 0)
 
-answer = [0] * N
+answer = 0
+cnt = arr[0]
 
-for i in range(1, N):
-    answer[i] = arr[0] * distance[i] + answer[i-1]
+for i in range(N-1):
+    if arr[i] < cnt:
+        cnt = arr[i]
+    answer += cnt * distance[i]
 
-for i in range(2, N):
-    val = answer[i-1]
-    for j in range(i, N):
-        val += arr[i-1]*distance[j]
-        if val <= answer[j]:
-            answer[j] = val
-        else:
-            break
 
-print(answer[-1])
+print(answer)
